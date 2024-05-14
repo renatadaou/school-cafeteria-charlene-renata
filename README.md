@@ -51,8 +51,7 @@ Total number of public schools = 1,379
 Average number of general violations per public school = 990 / 1,379 ≈ 0.72
 Multivariable regression analysis 
 
-Statistical analyses reveal a significant gap between private and public schools, with private schools consistently showing more food violations in school cafeterias. This divide is particularly stark in Jewish schools. The information on which religious denomination the schools belong to was obtained from this website add website
-
+Statistical analyses reveal a significant gap between private and public schools, with private schools consistently showing more food violations in school cafeterias. This divide is particularly stark in Jewish schools. The information on which religious denomination the schools belong to was obtained from the Private School Universe Survey (PSS).
 Multivariable regression analysis indicates that Jewish schools tend to have higher counts of food violations compared to other schools. This suggests an association between being a Jewish school and having more food violations. Interestingly, factors such as student population and student-to-teacher ratio do not consistently affect food violations. This implies that school size and teacher-student ratio may not play a significant role in determining food violations.
 
 Regression analysis is a methodical way of exploring the relationships between different factors to understand why something happens. In this case, we're investigating why there are issues with food in school cafeterias. We're looking at various factors that might be linked to these problems.
@@ -70,8 +69,23 @@ X4 = School Type (Public/Private, Religious or not, Jewish/Catholic)
 X5 = Minority (percentage of students being minorities)
 X6 = Student body size (hypothesis is that if there are more people to cook for, the kitchen can be more messy)
 
-The Welch Two Sample t-test suggests significant differences in food violation counts between schools categorized by these variables. In the Multivariable Regression Analysis, the presence of Jewish schools significantly increases the expected food violation count, independent of other factors. Private schools tend to have slightly higher food violation counts than public schools. "Students" and "Student-Teacher Ratio” don’t show a significant effect on food violations.
+Unfortunately, the socioeconomic status was not successfully obtained, and the data on minority students was only available for private schools. Since it is clear from preliminary data analysis that Jewish schools (usually 100% white) are where violations are concentrated, we decided to focus on schools being Jewish or not as a variable.
+
+The Welch Two Sample t-test suggests significant differences in food violation counts between schools categorized by these variables. In the Multivariable Regression Analysis, the presence of Jewish schools significantly increases the expected food violation count, independent of other factors. Private schools tend to have slightly higher food violation counts than public schools. Student body size and Student-Teacher Ratio don’t show a significant effect on food violations, which overthrew the original hypothesis we had about how kitchen sanitation can be affected by the number of students to feed and the proxy of school resources.
+
+
+In Final Private School Merged Dataset, we obtained standardized test scores of 192 NYC private schools and did a linear regression to conclude the relationship between students’ basic English and math proficiency levels and the school violation counts was significant. We aggregated the passing rate and took an average for each school that adopted the standardized tests. However, the tests were not adopted by private schools, with violations of as many as 12. Data points spanning the complete range of violation counts were collected and qualified as random samples selected from a bigger dataset. The result yields a p-value smaller than 0.05.
 
 
 When it comes to test results, we explored the dataset from this article here. To match the schools in the DOHMH dataset, and the test results dataset, we used a method in Python called fuzzy match. In Python, the fuzzy-wuzzy library allowed us to perform fuzzy matching between strings, and link the schools with their cafeteria violations as well as their test results. 
+
+
+To understand the relationship between test results, the religious affiliation of the schools, and food violations in cafeterias, we made a new regression. 
+
+The analysis shows that Jewish schools, on average, have more violations compared to other schools. The math shows that as students perform better, the number of food violations slightly decreases. For every increase in proficiency, violations go down by about 0.016. This might seem small, but it’s statistically significant, meaning it's a real effect, not just random noise. The model explains only about 2.67% of the variation in rule violations between different schools. This is a pretty low number, which suggests that student performance alone doesn't tell us much about why some schools have more violations than others.
+
+
+
+Find the code for the story here: https://github.com/renatadaou/school-cafeteria-charlene-renata
+https://github.com/charlenelin0824/connect-to-census
 
